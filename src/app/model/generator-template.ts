@@ -15,9 +15,22 @@ export interface Border {
 }
 
 export interface TemplateData {
-    images: Image[]
+    images?: Image[]
     paper: Paper
     border: Border
-    imageColumns: number,
+    imageColumns: columns,
     imageMixSeed: number | undefined,
+}
+
+export enum columns {
+    'Одна' = 1,
+    'Две',
+    'Три',
+    'Четыре',
+    'Пять',
+    'Шесть',
+    'Семь',
+    'Восемь',
+    'Девять',
+    'Десять',
 }
