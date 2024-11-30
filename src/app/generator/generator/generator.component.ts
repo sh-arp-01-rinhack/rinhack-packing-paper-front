@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { columns, TemplateData } from '../../model/generator-template';
 import { CommonModule, JsonPipe } from '@angular/common';
+import { SpinnerComponent } from "../../utility/spinner/spinner.component";
 
 @Component({
   selector: 'app-generator',
   standalone: true,
-  imports: [JsonPipe, CommonModule, FormsModule],
+  imports: [JsonPipe, CommonModule, FormsModule, SpinnerComponent, SpinnerComponent],
   templateUrl: './generator.component.html',
   styleUrl: './generator.component.scss'
 })
