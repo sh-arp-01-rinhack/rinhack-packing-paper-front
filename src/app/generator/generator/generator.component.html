@@ -12,14 +12,12 @@
                         <div class="d-flex gap-2 overflow-x-auto">
                             @for (item of [1,2,3,4]; track $index) {
                             <div>
-                                <div class="card" style="width: 18rem;">
-                                    <div style="height: 18rem;">
-                                        <img src="https://picsum.photos/300" class="card-img-top" alt="..."
-                                            style="width: 18rem;">
+                                <div class="card preview-card" style="width: 18rem;">
+                                    <app-spinner
+                                        class="position-absolute top-50 start-50 translate-middle"></app-spinner>
 
-                                        <app-spinner
-                                            class="position-absolute top-50 start-50 translate-middle"></app-spinner>
-
+                                    <div class="object-fit-contain image-container">
+                                        <img src="https://picsum.photos/300" class="card-img-top" alt="...">
                                     </div>
 
                                     <div class="card-body">
