@@ -1,0 +1,109 @@
+<div class="mb-3">
+    <div class="d-flex gap-3 align-items-center justify-content-between flex-wrap">
+        <div class="d-flex flex-column gap-2 align-items-center">
+            <img src="https://picsum.photos/400" class="object-fit-contain border rounded preview-container" alt="...">
+            <div class="fs-5 fw-medium text-muted">
+                Предпросмотр
+            </div>
+        </div>
+
+        <div class=" d-flex flex-column gap-1 flex-fill">
+            <button class="btn btn-lg btn-primary ">
+                <i class="bi bi-cloud-download"></i>
+                Скачать изображение для печати
+            </button>
+            <button class="btn btn-outline-primary ">
+                <i class="bi bi-eraser"></i>
+                Очистить форму
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-column gap-3">
+    <div class="mb-3">
+        <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+            <div class="">
+                <div class="mb-3">
+                    <div class="h5">Доступные шаблоны</div>
+                    <div class="d-flex gap-2 overflow-x-auto">
+                        @for (item of [1,2,3,4]; track $index) {
+                        <div>
+                            <div class="card template-card" style="width: 18rem;">
+                                <app-spinner class="position-absolute top-50 start-50 translate-middle"></app-spinner>
+
+                                <div class="object-fit-contain image-container">
+                                    <img src="https://picsum.photos/300" class="card-img-top" alt="...">
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Шаблон {{$index + 1}}</h5>
+                                    <p class="card-text"></p>
+                                    <a href="#" class="btn btn-primary">Использовать</a>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="h5">Лист бумаги</div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="form-group col">
+                            <label for="paper-width">Ширина</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="paper-width" required
+                                    [(ngModel)]="model.paper.width" name="paper-width">
+                                <span class="input-group-text">мм</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="paper-height">Высота</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="paper-height" required
+                                    [(ngModel)]="model.paper.height" name="paper-height">
+                                <span class="input-group-text">мм</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <div class="h5">Границы</div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="form-group col">
+                                <label for="border-width">Ширина</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="border-width"
+                                        [(ngModel)]="model.border.width" name="border-width"> <span
+                                        class="input-group-text">мм</span>
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <label for="border-color">Цвет</label>
+                                <input type="text" class="form-control" id="border-color"
+                                    [(ngModel)]="model.border.color" name="border-color">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skill">Количество колонок</label>
+                        <select class="form-control" id="skill" required [(ngModel)]="model.imageColumns" name="skill">
+                            <option value="" disabled selected>Количество колонок</option>
+                            @for (column of columnsEnumKeys; track $index) {
+                            <option [ngValue]="column" [label]="cols[$index+1]"></option>
+                            }
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <p class="card-text text-muted small">{{ model | json }}</p>
+            </div>
+        </div>
+    </div>
+</div>
